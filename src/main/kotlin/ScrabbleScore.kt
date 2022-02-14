@@ -4,15 +4,12 @@ class ScrabbleScore {
       var letters: CharArray = word.toCharArray()
       var score:Int = 0
         //need to find the value of each letter and add that value to score
-        for(i:Int in letters.size-1..0){
-            score = scoreLetter(letters[i])
+        for(i:Int in 0..letters.size-1){
+            score =score+ scoreLetter(letters[i])
         }
        return score
 
-
-
         //TODO calculate using the scoreLetter method below, the scrabble value of the word passed as a parameter
-
     }
 
     //TODO the program if the user enters in any chars other than capital letters...try fix this.
@@ -20,16 +17,18 @@ class ScrabbleScore {
     private fun scoreLetter(char: Char): Int {
        var CHAR:Char = char.uppercaseChar()
 
-        return when (CHAR) {
-            in "AEIOULNRST" -> 1
-            in "DG" -> 2
-            in "BCMP" -> 3
-            in "FHVWY" -> 4
-            in "K" -> 5
-            in "JX" -> 8
-            in "QZ" -> 10
-            else -> error("Unknown character")
-        }
+    return when (CHAR) {
+        in "AEIOULNRST" -> 1
+        in "DG" -> 2
+        in "BCMP" -> 3
+        in "FHVWY" -> 4
+        in "K" -> 5
+        in "JX" -> 8
+        in "QZ" -> 10
+        else -> error("Unknown character")
+    }
+
+
     }
 
     fun letterValues() = """Letter                           Value
